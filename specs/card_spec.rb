@@ -27,11 +27,38 @@ describe Card do
     it "to_s returns a readable String value logically for values 2-10" do
       # Test to ensure that to_s works for cards values 2-10
       # for example:  "2 of diamonds"
+      card_1 = Card.new(8, :hearts)
+      card_2 = Card.new(2, :spades)
+      card_3 = Card.new(10, :diamonds)
+
+      card_string_1 = card_1.to_s
+      card_string_2 = card_2.to_s
+      card_string_3 = card_3.to_s
+
+
+      card_string_1.must_equal "8 of hearts"
+      card_string_2.must_equal "2 of spades"
+      card_string_3.must_equal "10 of diamonds"
     end
 
     it "to_s returns a readable String value for Ace, Jack, Queen, King" do
       # Test to ensure that to_s works for cards values 1, and 11-13
       # For example: "Queen of hearts"
+      card_1 = Card.new(1, :hearts)
+      card_2 = Card.new(11, :spades)
+      card_3 = Card.new(12, :diamonds)
+      card_4 = Card.new(13, :clubs)
+
+      card_string_1 = card_1.to_s
+      card_string_2 = card_2.to_s
+      card_string_3 = card_3.to_s
+      card_string_4 = card_4.to_s
+
+      card_string_1.must_equal "Ace of hearts"
+      card_string_2.must_equal "Jack of spades"
+      card_string_3.must_equal "Queen of diamonds"
+      card_string_4.must_equal "King of clubs"
+
     end
   end
 
@@ -39,11 +66,23 @@ describe Card do
 
     it "Can retrieve the value of the card using a `.value`." do
       # ensure that `.value works as expected`
+
+      card = Card.new(2, :spades)
+
+      value = card.value
+
+      value.must_equal 2
+      card.must_respond_to :value
     end
 
     it "Can retrieve the value of the card using a `.suit`." do
       # ensure that `.suit works as expected returning the symbol of the suit`
+      card = Card.new(2, :spades)
 
+      suit = card.suit
+
+      suit.must_equal :spades
+      card.must_respond_to :suit
     end
   end
 
