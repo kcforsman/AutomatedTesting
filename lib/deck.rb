@@ -17,6 +17,7 @@ class Deck
 
   def draw
     # returns a card
+    return false if @deck.empty?
     @deck.shift
   end
 
